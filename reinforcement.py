@@ -55,6 +55,8 @@ def numberToBase(n, b):
 
 class Solution:
     def create_action_dict(self, num_players, num_actions):
+      if num_actions*num_playuers == 0:
+        return {0: (), (): 0}
       enddict={}
       tuples = num_actions ** num_players
       for i in range(tuples):
