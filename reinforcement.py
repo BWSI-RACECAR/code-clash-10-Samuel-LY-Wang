@@ -61,8 +61,8 @@ class Solution:
         ibaction=numberToBase(i, num_actions)
         ibaction=ibaction++(num_players-len(ibaction))*[0]
         ibaction=tuple(ibaction)
-        enddict[ibaction]=i
         enddict[i]=ibaction
+        enddict[ibaction]=i
       return enddict
     
 def main():
