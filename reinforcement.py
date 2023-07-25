@@ -59,7 +59,7 @@ class Solution:
       tuples = num_actions ** num_players
       for i in range(tuples):
         ibaction=numberToBase(i, num_actions)
-        ibaction=ibaction++(num_players-len(ibaction))*[0]
+        ibaction=ibaction[::-1]+(num_players-len(ibaction))*[0]
         ibaction=tuple(ibaction)
         enddict[i]=ibaction
         enddict[ibaction]=i
