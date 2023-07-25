@@ -44,13 +44,26 @@ Input: 3, 2 Output: {0: (0, 0, 0), (0, 0, 0): 0, 1: (1, 0, 0), (1, 0, 0): 1, 2: 
  (1, 1, 1): 7}
 """
 
+def numberToBase(n, b):
+    if n == 0:
+        return [0]
+    digits = []
+    while n:
+        digits.append(int(n % b))
+        n //= b
+    return digits[::-1]
+
 class Solution:
     def create_action_dict(self, num_players, num_actions):
-            #type num: two integer values
-            #return type: int dictionary
-            
-            #TODO: Write code below to return a dictionary with the solution to the prompt.
-            pass
+      enddict={}
+      tuples = num_actions ** num_players
+      for i in range(tuples):
+        ibaction=numberToBase(i, num_actions)
+        ibaction=ibaction++(num_players-len(ibaction))*[0]
+        ibaction=tuple(ibaction)
+        enddict[ibaction]=i
+        enddict[i]=ibaction
+      return enddict
     
 def main():
     input1 = input()
